@@ -1,4 +1,4 @@
-{% load staticfiles %} !<!DOCTYPE html>
+{% comment %} {% load staticfiles %} !<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -13,4 +13,18 @@
 
     <script src="" async defer></script>
   </body>
-</html>
+</html> {% endcomment %}
+
+<body style="background-color: teal;"></body>
+<h1>Where do you want to eat tonight?</h1>
+<button id="myBtn" style="border: 1px solid red; background-color: gray;"><a href="login/">Log In</a></button>
+<ul>
+  {% for restaurant in restaurants %}
+
+<li><a href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a> 
+  <br />
+</li>
+
+{% endfor %}
+<button id="myBtn" style="border: 1px solid red; background-color: gray;"><a href="logout/">Log Out</a></button>
+</ul>
