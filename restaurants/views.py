@@ -6,15 +6,19 @@ from users.models import TFRUser
 # Create your views here.
 
 
+def test(request):
+    return render(request, 'border_test.html')
+
+
 @login_required
-def rest_list(request):
+def index(request):
     restaurants = Restaurant.objects.all()
     return render(request, 'index.html', {'restaurants': restaurants})
 
 
 def restaurant_detail(request, restaurant_id: int):
     restaurant = Restaurant.objects.get(id=restaurant_id)
-    return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
+    return render(request, 'rest_detail.html', {'restaurant': restaurant})
 
 
 def add_to_favs(request, restaurant_id: int):
@@ -22,4 +26,4 @@ def add_to_favs(request, restaurant_id: int):
     user = TFRUser.objects.get(id=request.user.id)
     user.favorites.add(restaurant)
     user.save()
-    return HttpResponseRedirect(reverse('restaurant_detail.html'))
+    return HttpResponseRedirect(reverse('restaurant_detail', args=(restaurant_id,)))

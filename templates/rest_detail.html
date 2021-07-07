@@ -1,4 +1,3 @@
-
 <body style="background-color: bisque"></body>
 
 {{restaurant.name}}
@@ -7,10 +6,12 @@
 <br />
 {{restaurant.pic_icon}}
 <br />
-{{restaurant.sig_dish}}
+This place is known for its {{restaurant.sig_dish}}
 <br />
-{{restaurant.num_favs}}
+{{restaurant.num_favs}} people have added this restaurant to their favorites list!
 <br />
 
-use for profile fav list links:
-<a href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
+<h2><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></h2>
+
+{% comment %} use for profile fav list links:
+<a href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a> {% endcomment %}
