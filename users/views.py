@@ -26,12 +26,14 @@ def signup_view(request):
     form = SignupForm()
     return render(request, 'signup_login_form.html', {'form': form})
 
+
 def login_view(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            user = authenticate(request, username=data['username'], password=data['password'])
+            user = authenticate(
+                request, username=data['username'], password=data['password'])
             if user:
                 login(request, user)
                 return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
@@ -40,17 +42,9 @@ def login_view(request):
 
 
 @login_required
-def index(request):
-    return render(request, 'index.html')
-    '''profile info
-    favs
-    friends 
-    link to restaurants page to choose favs
-    notifications'''
-
-@login_required
 def favorites():
     ...
+
 
 @login_required
 def remove_fav():
@@ -61,6 +55,3 @@ def remove_fav():
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
-
-
-

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-{% load static %} <!DOCTYPE html>
-<html>
-=======
 <!DOCTYPE html>
 <html lang="en">
->>>>>>> main
   <head>
     <style type="text/css">
       .sidenav {
@@ -48,15 +43,6 @@
     <title>{% block title %}TFR CAPSTONE Q4{% endblock %}</title>
   </head>
   <body>
-<<<<<<< HEAD
-    <a href='/logout' style="padding: 10px;">Logout</a>
-    <p>
-      Profile Here
-    </p>
-    {{ match_list }}
-
-    <script src="" async defer></script>
-=======
     <div class="sidenav">
       <a href="/admin/">Admin</a>
       <a href="/login/">Login</a>
@@ -66,19 +52,18 @@
       <a href="/logout/">Logout</a>
     </div>
     <div id="content" , name="content" , class="main">
-      {% block content %}
-      <h1 class="mt-2">Where do you want to eat tonight?</h1>
-      <hr class="mt-0 mb-4" />
-      <button id="myBtn" style="border: 1px solid red; background-color: gray"><a href="login/">Log In</a></button>
-      <ul>
-        {% for restaurant in restaurants %}
-        <li>
-          <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
-          <br />
-        </li>
-        {% endfor %}
-        <button id="myBtn" style="border: 1px solid red; background-color: gray"><a href="logout/">Log Out</a></button>
-      </ul>
+      {% block content %} {{restaurant.name}}
+      <br />
+      Location:{{restaurant.location}}
+      <br />
+      {{restaurant.pic_icon}}
+      <br />
+      This place is known for its {{restaurant.sig_dish}}
+      <br />
+      {{restaurant.num_favs}} people have added this restaurant to their favorites list!
+      <br />
+
+      <h2><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></h2>
       {% endblock %}
     </div>
     <script
@@ -96,6 +81,8 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
->>>>>>> main
   </body>
 </html>
+
+{% comment %} use for profile fav list links:
+<a href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a> {% endcomment %}

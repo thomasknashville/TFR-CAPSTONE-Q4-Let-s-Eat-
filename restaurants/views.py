@@ -1,18 +1,29 @@
-from django.shortcuts import render
+from restaurants.models import Restaurant
+from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.contrib.auth.decorators import login_required
+from users.models import TFRUser
 
 # Create your views here.
 
 
-def rest_list():
-    '''name, pic, num_favs'''
-    '''sortable by num_favs'''
-    ...
+def test(request):
+    return render(request, 'border_test.html')
 
 
-def rest_detail():
-    '''name, pic, num_favs, location, sig_dish, add_to_favs'''
-    ...
+@login_required
+def index(request):
+    restaurants = Restaurant.objects.all()
+    return render(request, 'index.html', {'restaurants': restaurants})
 
 
-def add_to_favs():
-    ...
+def restaurant_detail(request, restaurant_id: int):
+    restaurant = Restaurant.objects.get(id=restaurant_id)
+    return render(request, 'rest_detail.html', {'restaurant': restaurant})
+
+
+def add_to_favs(request, restaurant_id: int):
+    restaurant = Restaurant.objects.get(id=restaurant_id)
+    user = TFRUser.objects.get(id=request.user.id)
+    user.favorites.add(restaurant)
+    user.save()
+    return HttpResponseRedirect(reverse('restaurant_detail', args=(restaurant_id,)))
