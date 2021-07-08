@@ -45,8 +45,9 @@
   <body>
     <div class="sidenav">
       <a href="/admin/">Admin</a>
-      <a href="/">Home</a>
       <a href="/login/">Login</a>
+      <a href="/signup/">Signup</a>
+      <a href="/">Home</a>
       <a href="/userdetail">MyProfile</a>
       <a href="/logout/">Logout</a>
     </div>
@@ -58,7 +59,7 @@
       <ul>
         {% for restaurant in restaurants %}
         <li>
-          <a href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
+          <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
           <br />
         </li>
         {% endfor %}

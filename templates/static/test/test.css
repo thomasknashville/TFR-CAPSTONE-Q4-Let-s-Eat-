@@ -4,7 +4,7 @@ body {
   background-color: #000;
 }
 
-.block {
+.rest-cards {
   position: relative;
   margin: 300px auto 0;
   width: 500px;
@@ -12,8 +12,8 @@ body {
   background: linear-gradient(0deg, #000, #272727);
 }
 
-.block:before,
-.block:after {
+.rest-cards:before,
+.rest-cards:after {
   content: "";
   position: absolute;
   left: -2px;
@@ -50,6 +50,6 @@ body {
   }
 }
 
-.block:after {
+.rest-cards:after {
   filter: blur(50px);
 }
