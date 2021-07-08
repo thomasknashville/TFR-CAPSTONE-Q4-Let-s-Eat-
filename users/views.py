@@ -40,7 +40,14 @@ def login_view(request):
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
 
+def users(request):
+    users=TFRUser.objects.all()
+    return render(request, 'user.html', {'users': users})
 
+def profile(request, TFRUser_id: int):
+    this_user=TFRUser.objects.get(id=TFRUser_id)
+    return render(request, 'user.html', {'this_user': this_user})
+    
 @login_required
 def favorites():
     ...
