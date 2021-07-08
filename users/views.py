@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -56,38 +55,3 @@ def remove_fav():
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
-=======
-from django.shortcuts import render
-
-# Create your views here.
-
-'''home page is user_profile'''
-
-
-def profile():
-    '''profile info
-    favs
-    friends 
-    link to restaurants page to choose favs
-    notifications'''
-
-
-def favorites():
-    ...
-
-
-def remove_fav():
-    ...
-
-
-def login():
-    ...
-
-
-def logout():
-    ...
-
-
-def signup():
-    ...
->>>>>>> main
