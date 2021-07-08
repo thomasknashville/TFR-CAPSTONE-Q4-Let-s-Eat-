@@ -13,6 +13,3 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
-
-
-Restaurant.objects.order_by('num_favs')
