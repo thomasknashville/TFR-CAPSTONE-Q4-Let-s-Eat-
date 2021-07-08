@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 {
     "python.pythonPath": "C:\\Users\\lsmit\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
     "python.testing.promptToConfigure": false,
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false
+=======
+{
+    "python.pythonPath": ".venv/bin/python3.9"
+>>>>>>> main
 }
