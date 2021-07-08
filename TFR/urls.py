@@ -24,4 +24,5 @@ urlpatterns = [
          views.restaurant_detail, name="restaurant_detail"),
     path('restaurant/<int:restaurant_id>/favorite/',
          views.add_to_favs, name='favorite'),
+    path('test/', views.test),
 ]
