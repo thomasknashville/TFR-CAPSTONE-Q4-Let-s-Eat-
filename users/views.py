@@ -42,11 +42,12 @@ def login_view(request):
 
 def users(request):
     users=TFRUser.objects.all()
-    return render(request, 'user.html', {'users': users})
+    return render(request, 'profile.html', {'users': users})
 
-def profile(request, TFRUser_id: int):
-    this_user=TFRUser.objects.get(id=TFRUser_id)
-    return render(request, 'user.html', {'this_user': this_user})
+@login_required
+def profile(request, user_id: int):
+    user = TFRUser.objects.get(id=user_id)
+    return render(request, 'profile.html', {'user':user})
     
 @login_required
 def favorites():

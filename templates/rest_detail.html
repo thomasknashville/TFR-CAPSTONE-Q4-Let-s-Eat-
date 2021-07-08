@@ -48,7 +48,7 @@
       <a href="/login/">Login</a>
       <a href="/signup/">Signup</a>
       <a href="/">Home</a>
-      <a href="/userdetail">MyProfile</a>
+      <a href="/user/{{user.id}}/">MyProfile</a>
       <a href="/logout/">Logout</a>
     </div>
     <div id="content" , name="content" , class="main">
@@ -60,7 +60,7 @@
       <br />
       This place is known for its {{restaurant.sig_dish}}
       <br />
-      {{restaurant.num_favs}} people have added this restaurant to their favorites list!
+      {{ fav_num }} people have added this restaurant to their favorites list!
       <br />
 
       <h2><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></h2>
