@@ -1,0 +1,12 @@
+<a href="/form">Edit your profle</a>
+<br />
+
+{% block content%} Username:{{user.username}}
+<br />
+Bio:{{user.bio}}
+<br />
+Email:{{user.email}}
+<br />
+{{user.picture}} TODO
+<br />
+{% endblock %} {% for favs in user.favorites.all %} {{favs}} {% endfor%}

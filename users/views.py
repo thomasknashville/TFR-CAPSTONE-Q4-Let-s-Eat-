@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+from users.forms import SignupForm, LoginForm, ImageForm
+from users.models import TFRUser
+from django.contrib.auth import authenticate, logout, login
 
 '''home page is user_profile'''
 
@@ -21,13 +24,21 @@ def remove_fav():
     ...
 
 
-def login():
-    ...
+@login_required
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('login'))
 
 
-def logout():
-    ...
-
-
-def signup():
-    ...
+def image_upload_view(request):
+    """Process images uploaded by users"""
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Get the current instance object to display in the template
+            img_obj = form.instance
+            return render(request, 'form.html', {'form': form, 'img_obj': img_obj})
+    else:
+        form = ImageForm()
+    return render(request, 'form.html', {'form': form})
