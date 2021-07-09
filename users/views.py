@@ -48,10 +48,6 @@ def users(request):
 def profile(request, user_id: int):
     user = TFRUser.objects.get(id=user_id)
     return render(request, 'profile.html', {'user':user})
-    
-@login_required
-def favorites():
-    ...
 
 
 @login_required
