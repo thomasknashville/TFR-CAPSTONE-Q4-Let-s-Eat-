@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from users.forms import SignupForm, LoginForm
 from users.models import TFRUser
+from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
 
 '''home page is user_profile'''
@@ -40,14 +41,12 @@ def login_view(request):
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
 
-def users(request):
-    users=TFRUser.objects.all()
-    return render(request, 'profile.html', {'users': users})
-
 @login_required
 def profile(request, user_id: int):
     user = TFRUser.objects.get(id=user_id)
-    return render(request, 'profile.html', {'user':user})
+    users=TFRUser.objects.all()
+    restaurants = Restaurant.objects.all()
+    return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants })
 
 
 @login_required

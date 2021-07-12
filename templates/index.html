@@ -43,19 +43,16 @@
     <title>{% block title %}TFR CAPSTONE Q4{% endblock %}</title>
   </head>
   <body>
-    <<<<<<< HEAD
     <a href="/logout" style="padding: 10px">Logout</a>
     <p>Profile Here</p>
-    {{ match_list }}
-
     <script src="" async defer></script>
-    =======
     <div class="sidenav">
       <a href="/admin/">Admin</a>
       <a href="/login/">Login</a>
       <a href="/signup/">Signup</a>
       <a href="/">Home</a>
       <a href="/user/{{user.id}}/">MyProfile</a>
+      <a href="/user/{{user.id}}/match">MatchPage</a>
       <a href="/logout/">Logout</a>
     </div>
     <div id="content" , name="content" , class="main">
@@ -67,7 +64,8 @@
         {% for restaurant in restaurants %}
         <li>
           <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
-          <br />
+          {{restaurant.pic_icon}}
+          <img src="{{restaurant.pic_icon}}" alt="{{ restaurant.name }}" /> <br />
         </li>
         {% endfor %}
         <button id="myBtn" style="border: 1px solid red; background-color: gray"><a href="logout/">Log Out</a></button>

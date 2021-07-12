@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from users import views as user_views
 from restaurants import views as rest_views
+from favorites import views as fav_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,8 @@ urlpatterns = [
     path('signup/', user_views.signup_view, name='signup'),
     path('restaurant/<int:restaurant_id>/', rest_views.restaurant_detail, name="rest_detail"),
     path('restaurant/<int:restaurant_id>/favorite/', rest_views.add_to_favs, name="favorite"),
-    path('user/', user_views.users, name='user'),
+    # path('user/', user_views.users, name='user'),
     path('user/<int:user_id>/', user_views.profile, name='profile'),
+    path('user/<int:user_id>/match/', fav_views.get_fav, name='match'),
+    
 ]

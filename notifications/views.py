@@ -6,15 +6,7 @@ from users.models import TFRUser
 
 # match user A favs w user B favs = match list
 # match list * random = result
-def get_fav(request, id):
-    my_favs = TFRUser.objects.all(id=id)
-    user_favs = request.user.filter(favorites=id)
-    match_list = []
-    for i in my_favs:
-        for j in user_favs:
-            if i == j:
-                match_list.add(i)
-    return render(request, 'index.html', {'match_list': match_list})
+
 
 
 '''

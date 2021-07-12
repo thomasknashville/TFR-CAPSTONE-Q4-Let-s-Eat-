@@ -25,6 +25,7 @@ def restaurant_detail(request, restaurant_id: int):
         for restaurant_fav in user.favorites.all():
             if restaurant_fav == restaurant:
                 fav_num += 1
+            # else error 500 YOU ALREADY FAVORITED THIS 
     return render(request, 'rest_detail.html', {'restaurant': restaurant, 'fav_num': fav_num})
 
 
