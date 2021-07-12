@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-from users.forms import SignupForm, LoginForm
+from users.forms import SignupForm, LoginForm, ProfileEditForm
 from users.models import TFRUser
 from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
@@ -49,12 +49,39 @@ def profile(request, user_id: int):
     return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants })
 
 
-@login_required
-def remove_fav():
+def profile_edit(request, user_id: int):
+    profile = TFRUser.objects.get(id=user_id)
+
+    if request.method == 'POST':
+        print("print this mofo")
+        form=ProfileEditForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            profile.bio = data['bio']
+            if data['picture']:
+                profile.picture = data['picture']
+            profile.email = data['email']
+            profile.save()
+            return HttpResponseRedirect(reverse('profile', args=(user_id,)))
+
+    form = ProfileEditForm(initial={
+        'bio': profile.bio,
+        'email': profile.email,
+        'picture': profile.picture,
+    })
+    return render(request, 'form.html', {'form': form})
+
+
+def demo_error(request):
     ...
-
-
+    
 @login_required
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
+
+def remove_from_favs(request, restaurant_id, user_id):
+    restaurant = Restaurant.objects.get(id=restaurant_id)
+    request.user.favorites.remove(restaurant)
+    request.user.save()
+    return HttpResponseRedirect(reverse('profile', args=(user_id, )))

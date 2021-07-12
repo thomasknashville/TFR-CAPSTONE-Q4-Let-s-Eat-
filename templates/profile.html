@@ -59,18 +59,32 @@
       <br />
       Email:{{user.email}}
       <br />
-      {{user.picture}} TODO
+      {% if user.picture %}
+      <img src="{{user.picture.url}}">
+      {% endif %}
       <br />
       My Favorite Restaurants:{% for favs in user.favorites.all %}
+      <a href="/restaurant/{{favs.id}}/">{{favs.name}}</a>
       <ul>
-        <li>{{favs}} This place has {{ restaurants.num_favs }}***TODO!*** favorites!</li>
+         This place has {{ favs.num_favs }} favorites! {% endfor %} 
+        <h2>
+          <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove this restaurant from your favorites</a>
+        </h2>
+           {% comment %}
+          <a href="/restaurant/{{ favs.id }}/unfavorite/">Unfavorite this Restaurant</a> {% endcomment %} {% comment %}
+          <a href="/follow/{{user.id}}/">Follow</a> {% endcomment %} {% comment %}
+        </button>
+        {% endcomment %} {% comment %}
+        <li>{{favs}} This place has {{ favs.num_favs }} favorites!</li>
+        {% endcomment %} {% comment %} {{ for restaurants in favs }} {% endcomment %}
       </ul>
       <br />
-      {% endfor%}
       <br />
       Lets go out to eat! Choose a user: {% for person in users %} {% if person != request.user %}
       <a href="/user/{{person.id}}/match/">{{person.username}}</a>
-      {% endif%} {% endfor %} {% endblock %}
+      {% endif%} {% endfor %} 
+      <a href="/user/{{user.id}}/edit/">Edit your profile</a>
+      {% endblock %}
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -64,8 +64,8 @@
         {% for restaurant in restaurants %}
         <li>
           <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
-          {{restaurant.pic_icon}}
-          <img src="{{restaurant.pic_icon}}" alt="{{ restaurant.name }}" /> <br />
+          {% comment %} {{restaurant.pic_icon}} {% endcomment %}
+          <img src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" /> <br />
         </li>
         {% endfor %}
         <button id="myBtn" style="border: 1px solid red; background-color: gray"><a href="logout/">Log Out</a></button>
@@ -87,6 +87,5 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    >>>>>>> main
   </body>
 </html>

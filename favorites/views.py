@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from users.models import TFRUser
+import random
 # Create your views here.
 def get_fav(request, user_id: int):
     # myself = TFRUser.objects.get(id=user_id)
@@ -16,4 +17,5 @@ def get_fav(request, user_id: int):
         for j in their_favs:
             if i == j:
                 match_list.insert(0, i)
-    return render(request, 'match.html', {'my_favs': my_favs, 'their_favs': their_favs, 'match_list': match_list})
+    app_choice = random.choice(match_list)
+    return render(request, 'match.html', {'my_favs': my_favs, 'their_favs': their_favs, 'match_list': app_choice})

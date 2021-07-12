@@ -9,7 +9,7 @@ from django.contrib.auth.models import AbstractUser
 class TFRUser(AbstractUser):
     email = models.EmailField(null=True, blank=True)
     picture = models.ImageField(
-        upload_to=None, height_field=None, width_field=None, blank=True)
+        upload_to="profile_img/", height_field=None, width_field=None, blank=True, null=True)
     bio = models.TextField(max_length=250, blank=True)
     favorites = models.ManyToManyField(
         Restaurant, symmetrical=False, related_name="my_favs", blank=True)
