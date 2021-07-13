@@ -1,12 +1,18 @@
+from users.models import TFRUser
 from django import forms
 
 
-class SignupForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput())
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
-
-
+class SignupForm(forms.ModelForm):
+    class meta:
+        model = TFRUser
+        fields = (
+            'username',
+            'email',
+            'password'
+        )
+        
+    def __str__(self) -> str:
+        return self.name
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput)

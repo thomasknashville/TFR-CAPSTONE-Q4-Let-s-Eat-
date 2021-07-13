@@ -58,9 +58,9 @@ def profile_edit(request, user_id: int):
         if form.is_valid():
             data = form.cleaned_data
             profile.bio = data['bio']
+            profile.email = data['email']
             if data['picture']:
                 profile.picture = data['picture']
-            profile.email = data['email']
             profile.save()
             return HttpResponseRedirect(reverse('profile', args=(user_id,)))
 
@@ -85,3 +85,9 @@ def remove_from_favs(request, restaurant_id, user_id):
     request.user.favorites.remove(restaurant)
     request.user.save()
     return HttpResponseRedirect(reverse('profile', args=(user_id, )))
+
+# def handler404(request):
+#     return render(request, '404.html', status=404)
+
+# def handler500(request):
+#     return render(request, '500.html', status=500)

@@ -20,25 +20,28 @@ from django.urls import path
 from users import views as user_views
 from restaurants import views as rest_views
 from favorites import views as fav_views
+import users
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', rest_views.index, name='homepage'),
+    path('', rest_views.IndexView.as_view(), name='homepage'),
     path('login/', user_views.login_view, name='login'),
     path('logout/', user_views.logout_view, name='logout'),
     path('signup/', user_views.signup_view, name='signup'),
-    path('restaurant/<int:restaurant_id>/', rest_views.restaurant_detail, name="rest_detail"),
-    path('restaurant/<int:restaurant_id>/favorite/', rest_views.add_to_favs, name="favorite"),
-    path('restaurant/<int:restaurant_id>/unfavorite/', rest_views.remove_from_favs, name="unfavorite"),
+    path('restaurant/<int:restaurant_id>/', rest_views.RestaurantDetailView.as_view(), name="rest_detail"),
+    path('restaurant/<int:restaurant_id>/favorite/', rest_views.AddToFavsView.as_view(), name="favorite"),
+    path('restaurant/<int:restaurant_id>/unfavorite/', rest_views.RemoveFromFavs.as_view(), name="unfavorite"),
     path('restaurant/<int:restaurant_id>/<int:user_id>/removefav/', user_views.remove_from_favs, name="remove_from_favs"),
-    # path('user/', user_views.users, name='user'),
     path('user/<int:user_id>/', user_views.profile, name='profile'),
     path('user/<int:user_id>/edit/', user_views.profile_edit, name='profile_edit'),
     path('user/<int:user_id>/match/', fav_views.get_fav, name='match'),
-    
-    
+    # path('error/404', users.views.handler404, name='404' ),
+    # path('error/500', users.views.handler500, name='500' ),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
     
+# handler404 = users.views.handler404
+# handler500 = users.views.handler500

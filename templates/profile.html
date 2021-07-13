@@ -61,6 +61,7 @@
       <br />
       {% if user.picture %}
       <img src="{{user.picture.url}}">
+      {% comment %} can add an else default img {% endcomment %}
       {% endif %}
       <br />
       My Favorite Restaurants:{% for favs in user.favorites.all %}
