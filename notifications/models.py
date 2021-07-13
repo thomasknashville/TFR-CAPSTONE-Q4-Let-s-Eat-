@@ -1,17 +1,22 @@
 from restaurants.models import Restaurant
 from django.db import models
 from users.models import TFRUser
+from django.utils import timezone
 # Create your models here.
 
 
-class Result(models.Model):
-    user = models.ForeignKey(
-        TFRUser, on_delete=models.CASCADE, related_name="notification")
-    # match = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    ...
+class Notification(models.Model):
+    sender = models.CharField(max_length=200, null=True)
+    recipient = models.ForeignKey(
+        TFRUser, on_delete=models.CASCADE)
+    rest_match = models.ForeignKey(Restaurant, on_delete=models.CASCADE, blank=True)
+    created_at =models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
-        return self.match
+
+Notification.objects.order_by('created_at')
+
+    # def __str__(self):
+    #     return self.match
 
 
 # class Note(models.Model):

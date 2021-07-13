@@ -20,6 +20,7 @@ from django.urls import path
 from users import views as user_views
 from restaurants import views as rest_views
 from favorites import views as fav_views
+from notifications import views as note_views
 # import users
 # from django.conf.urls import handler404, handler500
 
@@ -39,6 +40,7 @@ urlpatterns = [
     path('user/<int:user_id>/', user_views.profile, name='profile'),
     path('user/<int:user_id>/edit/', user_views.profile_edit, name='profile_edit'),
     path('user/<int:user_id>/match/', fav_views.get_fav, name='match'),
+    path('user/<int:user_id>/viewmatch/', note_views.note, name='view_match'),
     path('error/', user_views.real_500_error, name='500 error')
 ]
 if settings.DEBUG:

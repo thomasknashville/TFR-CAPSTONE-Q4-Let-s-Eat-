@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Result
+from .models import Notification
 # Register your models here.
-admin.site.register(Result)
+admin.site.register(Notification)

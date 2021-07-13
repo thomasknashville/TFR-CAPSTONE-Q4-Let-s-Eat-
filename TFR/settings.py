@@ -15,7 +15,7 @@ import os
 import environ
 from dotenv import load_dotenv
 
-DEBUG = False
+DEBUG = True
 
 load_dotenv()
 DJANGO_SECRET = os.environ.get('SECRET_KEY')

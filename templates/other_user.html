@@ -1,0 +1,2 @@
+{% for note in notes%} {% if note.recipient == request.user%} {{note.sender}} is inviting you to dine with them at
+{{note.rest_match}} ! Invitation sent at: {{note.created_at}} {% endif %} {% endfor %}
