@@ -13,26 +13,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import environ
+from dotenv import load_dotenv
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
+DEBUG = False
 
-# False if not in os.environ
-DEBUG = env('DEBUG')
+load_dotenv()
+DJANGO_SECRET = os.environ.get('SECRET_KEY')
+SECRET_KEY = DJANGO_SECRET
 
-# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
-
-CACHES = {
-    # read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
-    'default': env.cache(),
-    # read os.environ['REDIS_URL']
-    'redis': env.cache('REDIS_URL')
-}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,14 +82,14 @@ WSGI_APPLICATION = 'TFR.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
-    'default': env.db(),
-    # read os.environ['SQLITE_URL']
-    'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db'),
+    #     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
+    # 'default': env.db(),
+    # # read os.environ['SQLITE_URL']
+    # 'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db'),
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    }   
 }
 
 

@@ -7,7 +7,7 @@ from users.models import TFRUser
 from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
 
-'''home page is user_profile'''
+'''home page is restaurant'''
 
 
 def signup_view(request):
@@ -38,6 +38,7 @@ def login_view(request):
             if user:
                 login(request, user)
                 return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
+           
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
 
@@ -86,8 +87,5 @@ def remove_from_favs(request, restaurant_id, user_id):
     request.user.save()
     return HttpResponseRedirect(reverse('profile', args=(user_id, )))
 
-# def handler404(request):
-#     return render(request, '404.html', status=404)
-
-# def handler500(request):
-#     return render(request, '500.html', status=500)
+def real_500_error(request):
+    raise Exception("make response code 500")
