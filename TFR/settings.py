@@ -25,7 +25,7 @@ SECRET_KEY = DJANGO_SECRET
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-ALLOWED_HOSTS = ['localhost:8000', 'localhost']
+ALLOWED_HOSTS = ['localhost:8000', 'localhost', '127.0.0.1', '127.0.0.1:8000']
 
 LOGIN_URL = 'login/'
 
@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'TFR.urls'
 MEDIA_ROOT = os.path.join(BASE_DIR/"media")

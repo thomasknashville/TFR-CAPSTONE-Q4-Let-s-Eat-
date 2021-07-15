@@ -1,5 +1,6 @@
 !<!DOCTYPE html>
 {% comment %} {% load staticfiles %} {% endcomment %}
+{% load alerts %}
 <html>
   <head>
     <meta charset="utf-8" />
@@ -50,13 +51,14 @@
       {% if user.is_authenticated %}
       <a href="/">Home</a>
       <a href="/user/{{user.id}}/">MyProfile</a>
+      <a href="/alert/">{{ alerts }}</a>
       <a href="/logout/">Logout</a>
       {% endif %} {% if unread %}
       <a href="/user/{{user.id}}/viewmatch">You Have a New Match!</a>
       {% endif %} {% if not user.is_authenticated %}
       <a href="/signup/">Signup</a>
       <a href="/login/">Login</a>
-      <a href="/alert/">{{unread.count}}</a>
+
 
       {% endif %}
     </div>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 from users.forms import SignupForm, LoginForm, ProfileEditForm
@@ -40,7 +41,9 @@ def login_view(request):
             if user:
                 login(request, user)
                 return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
-           
+            else:
+                messages.error(request,'Username or Password not correct')
+                return HttpResponseRedirect(reverse('login'))
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
 
@@ -50,7 +53,6 @@ def profile(request, user_id: int):
     users=TFRUser.objects.all()
     restaurants = Restaurant.objects.all()
     new_notes = Notification.objects.filter(read=False, recipient=request.user)
-    print(new_notes)
     return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants, "new_notes": new_notes })
 
 
@@ -58,7 +60,6 @@ def profile_edit(request, user_id: int):
     profile = TFRUser.objects.get(id=user_id)
 
     if request.method == 'POST':
-        print("print this mofo")
         form=ProfileEditForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
