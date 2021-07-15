@@ -1,10 +1,12 @@
-<a href='/signup'>Signup</a> ------
-<a href='/login'>Login</a>
+{% extends 'base.html' %} {% block content %}
+<div id="app_choice" , name="main" , class="main">
+  <a href="/signup">Signup</a> ------
+  <a href="/login">Login</a>
 
-<form method="POST" action="">
-  {% csrf_token %}
+  <form method="POST" action="">
+    {% csrf_token %} {{ form.as_p }}
 
-  {{ form.as_p }}
-
-  <input type="submit" value="Submit">
-</form>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, logout, login
 '''home page is restaurant'''
 
 
-def signup_view(request):
+def SignupView(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
         if form.is_valid():
@@ -23,7 +23,8 @@ def signup_view(request):
             return HttpResponseRedirect(reverse('homepage'))
         else:
             form = SignupForm()
-            return render(request, 'signup_login_form.html', {'form': form})
+            context={'form':form}
+            return render(request, 'signup_login_form.html', context)
     form = SignupForm()
     return render(request, 'signup_login_form.html', {'form': form})
 

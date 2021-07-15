@@ -3,7 +3,7 @@ from django import forms
 
 
 class SignupForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = TFRUser
         fields = (
             'username',
