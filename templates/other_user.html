@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div id="content" , name="content" , class="main">
- {% for note in notes%} {% if note.recipient == request.user%}<ul> {{note.sender}} is inviting you
-to dine with them at {{note.rest_match}}! Invitation sent at: {{note.created_at}} {% endif %} {% endfor %}
+ {% for note in unread%} <ul> {{note.sender}} is inviting you
+to dine with them at {{note.rest_match}}! Invitation sent at: {{note.created_at}}  {% endfor %}
 </br></ul>
 Rate your experience at this restaurant (TODO)
 </div>  

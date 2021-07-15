@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from users.forms import SignupForm, LoginForm, ProfileEditForm
 from users.models import TFRUser
+from notifications.models import Notification
 from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
 
@@ -48,7 +49,9 @@ def profile(request, user_id: int):
     user = TFRUser.objects.get(id=user_id)
     users=TFRUser.objects.all()
     restaurants = Restaurant.objects.all()
-    return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants })
+    new_notes = Notification.objects.filter(read=False, recipient=request.user)
+    print(new_notes)
+    return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants, "new_notes": new_notes })
 
 
 def profile_edit(request, user_id: int):

@@ -1,8 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 <div id="app_choice" , name="main" , class="main">
-  <a href="/signup">Signup</a> ------
-  <a href="/login">Login</a>
-
   <form method="POST" action="">
     {% csrf_token %} {{ form.as_p }}
 
