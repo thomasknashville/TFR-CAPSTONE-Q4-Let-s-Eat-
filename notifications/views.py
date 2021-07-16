@@ -18,9 +18,8 @@ def note(request, user_id):
 
 def alert(request):
     unread = Notification.objects.filter(read=False, recipient=request.user)
-    alerts=[]
-    for i in unread:
-        alerts.add(i)
-    return render(request, 'base.html', {'unread':unread})
+    count = len(unread)
+    print(count)
+    return render(request, 'base.html', {'unread':unread, 'count': count})
     
 

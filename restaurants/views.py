@@ -1,6 +1,7 @@
 from restaurants.models import Restaurant
 from django.shortcuts import render, redirect, reverse
 from users.models import TFRUser
+from notifications.models import Notification
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -17,7 +18,9 @@ class IndexView(LoginRequiredMixin, View):
     def get(self, request):
         restaurants = Restaurant.objects.all()
         template_name= "index.html"
-        context= {"restaurants": restaurants}
+        unread = Notification.objects.filter(read=False, recipient=request.user)
+        count = len(unread)
+        context= {"restaurants": restaurants, "count":count}
         return render(request, template_name, context)
 
 

@@ -25,7 +25,7 @@ SECRET_KEY = DJANGO_SECRET
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-ALLOWED_HOSTS = ['localhost:8000', 'localhost']
+ALLOWED_HOSTS = ['localhost:8000', 'localhost', '127.0.0.1', '127..0.0.1:8000']
 
 LOGIN_URL = 'login/'
 
@@ -127,8 +127,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# print(STATIC_ROOT)
 
 STATIC_URL = '/static/'
+
+
 
 AUTH_USER_MODEL = 'users.TFRUser'
 

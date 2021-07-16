@@ -7,6 +7,7 @@ from users.models import TFRUser
 from notifications.models import Notification
 from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
+from django.contrib import messages
 
 '''home page is restaurant'''
 
@@ -40,6 +41,9 @@ def login_view(request):
             if user:
                 login(request, user)
                 return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
+            else:
+                messages.error(request, "Username or Password not correct. Try agin or Sign Up!")
+                return HttpResponseRedirect(reverse('login'))
            
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
@@ -50,7 +54,6 @@ def profile(request, user_id: int):
     users=TFRUser.objects.all()
     restaurants = Restaurant.objects.all()
     new_notes = Notification.objects.filter(read=False, recipient=request.user)
-    print(new_notes)
     return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants, "new_notes": new_notes })
 
 
