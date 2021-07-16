@@ -6,18 +6,37 @@
   <br />
   Location:{{restaurant.location}}
   <br />
-  <img height="200" src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" />
+  <img
+    height="200"
+    width="200"
+    src="{{restaurant.pic_icon.url}}"
+    alt="{{ restaurant.name }}"
+  />
   <br />
   This place is known for its {{restaurant.sig_dish}}
   <br />
-  View their menu Here -->
-  <img height="200" src="{{restaurant.menu.url}}" alt="Restaurant Menu Not Available" />
   <br />
-  {{restaurant.num_favs}} people have added this restaurant to their favorites list!
+  View their menu Here<br />
+  <img
+    height="200"
+    src="{{restaurant.menu.url}}"
+    alt="Restaurant Menu Not Available"
+  />
+  <br />
+  {{restaurant.num_favs}} people have added this restaurant to their favorites
+  list!
   <br />
 
   <br />
-  <h2><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></h2>
-  <h2><a href="/restaurant/{{ restaurant.id }}/unfavorite/">Remove this restaurant from your favorites</a></h2>
+  <h2>
+    <a href="/restaurant/{{ restaurant.id }}/favorite/"
+      >Add this restaurant to your favorites</a
+    >
+  </h2>
+  <h2>
+    <a href="/restaurant/{{ restaurant.id }}/unfavorite/"
+      >Remove this restaurant from your favorites</a
+    >
+  </h2>
 </div>
 {% endblock %}

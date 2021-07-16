@@ -6,8 +6,19 @@
   <ul>
     {% for restaurant in restaurants %}
     <li>
-      <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
-      <img height="200" src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" /> <br />
+      <a class="rest-cards" href="/restaurant/{{restaurant.id}}/"
+        >{{restaurant.name}}</a
+      >
+      <br />
+
+      <img
+        height="200"
+        width="200"
+        src="{{restaurant.pic_icon.url}}"
+        alt="{{ restaurant.name }}"
+      />
+      <br />
+      <br />
     </li>
     {% endfor %}
   </ul>

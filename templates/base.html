@@ -22,7 +22,7 @@
         height: 100px;
       }
       html {
-          background: rgb(255,255,255);
+          background: rgb(220,202,152);
       }
       a{
           text-decoration: none;
@@ -126,7 +126,9 @@
       <div class="svg-wrapper">
         <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
           <rect class="shape" height="60" width="320" />
-          <div class="text"><a href="/user/{{user.id}}/viewmatch">View New Match!</a></div>
+          <div class="text">
+            <a href="/user/{{user.id}}/viewmatch">View New Match!</a>
+          </div>
         </svg>
       </div>
       {% endif %} {% if not user.is_authenticated %}
