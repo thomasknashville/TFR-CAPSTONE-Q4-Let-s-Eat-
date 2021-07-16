@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block navbar %}
+
+<div class="nav-back navbar mycontainer">
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text">
+        <a href="/admin/">Admin</a>
+      </div>
+    </svg>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/">Home</a></div>
+    </svg>
+  </div>
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/user/{{user.id}}/">MyProfile</a></div>
+    </svg>
+  </div>
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/logout/">Logout</a></div>
+    </svg>
+  </div>
+  {% endif %} {% if count > 0 %}
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/user/{{user.id}}/viewmatch">View New Match!</a></div>
+    </svg>
+  </div>
+  {% endif %} {% if not user.is_authenticated %}
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/signup/">Signup</a></div>
+    </svg>
+  </div>
+  <div class="svg-wrapper">
+    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+      <rect class="shape" height="60" width="320" />
+      <div class="text"><a href="/login/">Login</a></div>
+    </svg>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

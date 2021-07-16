@@ -1,34 +1,31 @@
-{% extends 'base.html' %} 
-{% block header %}
-<link src="match.css" />
-{% endblock %}
-{% block content%}
-</div>
-<div id="content" , name="content" , class="main">
-  Username:{{user.username}}
-  <br />
-  Bio:{{user.bio}}
-  <br />
-  Email:{{user.email}}
-  <br />
-  {% if user.picture %}
-  <img width="200px" height="300px" src="{{user.picture.url}}" />
-  {% endif %}
-  <br />
-  My Favorite Restaurants:{% for favs in user.favorites.all %}
-  <ul>
-    <a href="/restaurant/{{favs.id}}/">{{favs.name}}</a>
-    This place has {{ favs.num_favs }} favorites!
-    <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove this restaurant from your favorites</a>
-    {% endfor %}
-  </ul>
-  <br />
-  Lets go out to eat! Choose a user: <br />{% for person in users %} {% if person != request.user %}
-  <a href="/user/{{person.id}}/match/">{{person.username}}</a><br />
-  {% endif%} {% endfor %}
-  <a href="/user/{{user.id}}/edit/">Edit your profile</a>
-  <br />
-  {{new_notes.count}}
-  <a href="/user/{{user.id}}/viewmatch/"> View matches</a>
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+<div class="container profile-style">
+  <div class="d-flex justify-content-start flex-wrap white">
+    Username:{{user.username}}
+    <br />
+    Bio:{{user.bio}}
+    <br />
+    Email:{{user.email}}
+    <br />
+    {% if user.picture %}
+    <img class="img-thumbnail m-auto" width="200px" height="300px" src="{{user.picture.url}}" />
+    {% endif %}
+    <br />
+    My Favorite Restaurants:{% for favs in user.favorites.all %}
+    <ul>
+      <a href="/restaurant/{{favs.id}}/">{{favs.name}}</a>
+      This place has {{ favs.num_favs }} favorites!
+      <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove this restaurant from your favorites</a>
+      {% endfor %}
+    </ul>
+    <br />
+    Lets go out to eat! Choose a user: <br />{% for person in users %} {% if person != request.user %}
+    <a href="/user/{{person.id}}/match/">{{person.username}}</a><br />
+    {% endif%} {% endfor %}
+    <a href="/user/{{user.id}}/edit/">Edit your profile</a>
+    <br />
+    {{new_notes.count}}
+    <a href="/user/{{user.id}}/viewmatch/"> View matches</a>
+  </div>
 </div>
 {% endblock %}

@@ -1,15 +1,49 @@
-{% extends 'base.html' %} {% block header %}
-<link src="match.css" />
-{% endblock %} {% block content %}
-<div id="content" , name="content" , class="main">
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %} {% include
+"rest_detail.html" %}
+<div id="content" , name="content" , class="index-styles">
   <h1 class="mt-2">What restaurants are open near me?</h1>
-  <ul>
-    {% for restaurant in restaurants %}
+  {% comment %} <ul> {% endcomment %}
+ {% comment %} {% for restaurant in restaurants %}
     <li>
       <a class="rest-cards" href="/restaurant/{{restaurant.id}}/">{{restaurant.name}}</a>
       <img height="200" src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" /> <br />
     </li>
     {% endfor %}
   </ul>
+  {{ }}
 </div>
+{% endblock %} {% endcomment %}
+ 
+  <ul>
+    {% for restaurant in restaurants %}
+     
+
+<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+  <div class="mainflip">
+    <div class="frontside">
+      <div class="card" style="width: 20rem">
+        <img class="card-img-top img- fluid" src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" />
+        <div class="card-body">
+          <h4 class="card-title">{{restaurant.name}}</h4>
+          <p class="card-text">Flip this card to view details and add to favorites!</p>
+        </div>
+      </div>
+    </div>
+    <div class="backside">
+      <div class="card" style="width: 20rem">
+        <div class="card-header">{{restaurant.name}}</div>
+        <div class="card-body">
+          <a href="/restaurant/{{restaurant.id}}/" class="btn btn-info btn-md">View restaurant Info</a>
+          <a href="/restaurant/{{ restaurant.id }}/favorite/" class="btn btn-info btn-md"
+            >Add this restaurant to your favorites</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    {% endfor %}
+  </ul>
+  </div>
 {% endblock %}

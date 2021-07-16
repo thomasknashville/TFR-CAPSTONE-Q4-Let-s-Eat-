@@ -1,11 +1,11 @@
-{% extends 'base.html' %} {% block header %}
-<link src="match.css" />
-{% endblock %} {% block content %}
-<div id="content" , name="content" , class="main">
-  <form method="POST" action="" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }}
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
 
-    <input type="submit" value="Submit" />
-  </form>
+<div class="form-box">
+  <div id="content" name="content" class="form">
+    <form method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" value="Submit" class="input-style" />
+    </form>
+  </div>
 </div>
 {% endblock %}

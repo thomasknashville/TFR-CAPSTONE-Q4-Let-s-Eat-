@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block header %}
-<link src="match.css" />
-{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+
 <div id="app_choice" , name="main" , class="main"><h1>EAT HERE: {{ app_choice }}</h1></div>
 {% endblock %}

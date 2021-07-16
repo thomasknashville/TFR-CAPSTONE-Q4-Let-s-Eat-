@@ -1,19 +1,19 @@
-{% extends 'base.html' %} {% block header %} {% load static%}
-<link href="{% static 'test/signup_login_form.css' %}" type="text/css" rel="stylesheet" />
-{% endblock %} {% block content %}
-<div class="container">
-  <div id="app_choice" , name="main" , class="main">
-    <form method="POST" action="">
-      {% csrf_token %} {{ form.as_p }}
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+<body>
+  <div class="mycontainer">
+    <div id="app_choice" , name="main" , class="form-box">
+      <form method="POST" action="">
+        {% csrf_token %} {{ form.as_p }}
 
-      <input type="submit" value="Submit" class="buttons" />
-    </form>
-    {% for message in messages %}
-    <div class="alert alert-success">
-      <a class="close" href="#" data-dismiss="alert">X</a>
-      {{message}}
+        <input type="submit" value="Submit" class="buttons" />
+      </form>
+      {% for message in messages %}
+      <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">X</a>
+        {{message}}
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
+</body>
 {% endblock %}
