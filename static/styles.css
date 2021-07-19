@@ -45,18 +45,136 @@ a {
   stroke-dashoffset: 0;
   stroke-dasharray: 760;
 }
+// NAV BAR LOWER BORDER
+@import "compass/css3";
 
-/* PROFILE STYLES */
-
-.profile-style {
-  background-color: coral;
+// body {
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+//   background: #112;
+// } CHANGED THIS TO:
+.nav_bottom_border {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  background: #112;
+  //   ADDED THIS:
+  //   z-index: 9;
+}
+.seperator-wrapper {
+  width: 100%;
+  .seperator {
+    width: 3000px;
+    height: 5px;
+    animation: rotate 3s infinite linear;
+    -webkit-animation: rotate 3s infinite linear;
+  }
 }
 
+@-webkit-keyframes rotate {
+  from {
+    background-position: -3000px;
+  }
+  to {
+    background-position: 0px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    background-position: -3000px;
+  }
+  to {
+    background-position: 0px;
+  }
+}
+
+.gradient {
+  background: rgb(48, 255, 144); /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, rgba(48, 255, 144, 1)),
+    color-stop(25%, rgba(237, 45, 237, 1)),
+    color-stop(50%, rgba(201, 152, 38, 1)),
+    color-stop(75%, rgba(48, 255, 230, 1)),
+    color-stop(100%, rgba(48, 255, 144, 1))
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to right,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  ); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ff90', endColorstr='#30ff90',GradientType=1 ); /* IE6-9 */
+}
+// INDEX HOMPAGE STYLES
+.index-styles {
+  background-color: black;
+}
+/* PROFILE STYLES */
+.rest_detail_styles {
+  background-color: black;
+}
+.profile-styles {
+  background-color: coral;
+}
+// LOGIN SIGNUP STYLES
+.login_styles .form-box {
+  background-color: black;
+}
 /* INDEX STYLES */
 
 .index-styles {
   background-color: black;
 }
+
+// .rest-cards {
+//   display: flex;
+// }
+
+// .cards {
+//   flex-flow: row-wrap;
+//   flex-grow: 4;
+//   justify-content: space-around;
+// }
+
 .image-flip:hover .backside,
 .image-flip.hover .backside {
   -webkit-transform: rotateY(0deg);
@@ -121,7 +239,7 @@ a {
 }
 
 .backside {
-  background: peachpuff;
+  background: white;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
@@ -132,4 +250,82 @@ a {
 .card,
 .card-img-top {
   border-radius: 0;
+}
+/* REST_DETAIL STYLES */
+
+/* // Change the colors */
+$color1: red;
+$color2: blue;
+
+.text-effect {
+  overflow: hidden;
+  position: relative;
+
+  /* // The blend modes mute the colors, so let's bump them up */
+  filter: contrast(110%) brightness(190%);
+}
+
+.neon {
+  position: relative;
+
+  // Only works on a black background, sorry
+  background: black;
+
+  // The actual text inside the div is superfluous, only data-text matters. The text is added so you can easily edit the preview
+  color: transparent;
+
+  &::before,
+  &::after {
+    // Add two copies of the text on their own layer
+    content: attr(data-text);
+
+    // White, so we can paint them later
+    color: white;
+
+    // And blur them to create the neon effect with the blend-mode below
+    filter: blur(0.02em);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  // Set the top copy to difference. This creates the knock-out effect with a bit of glow
+  &::after {
+    mix-blend-mode: difference;
+  }
+}
+
+// Position our two effect layers
+.gradient,
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+// Add the colors
+.gradient {
+  background: linear-gradient(45deg, $color1, $color2);
+
+  // Multiply mode will paint only the white text
+  mix-blend-mode: multiply;
+}
+
+.spotlight {
+  animation: light 5s infinite linear;
+
+  // These are the lights, color-dodge needs a black bg for optimum effect
+  background: radial-gradient(circle, white, transparent 25%) 0 0 / 25% 25%,
+    radial-gradient(circle, white, black 25%) 50% 50% / 12.5% 12.5%;
+  top: -100%;
+  left: -100%;
+
+  // Color dodge gives the lights that shimmer effect
+  mix-blend-mode: color-dodge;
 }

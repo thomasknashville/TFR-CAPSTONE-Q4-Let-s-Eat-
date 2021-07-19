@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
-<div class="container profile-style">
+<div class="container">
   <div class="d-flex justify-content-start flex-wrap white">
     Username:{{user.username}}
     <br />
@@ -14,7 +14,7 @@
     My Favorite Restaurants:{% for favs in user.favorites.all %}
     <ul>
       <a href="/restaurant/{{favs.id}}/">{{favs.name}}</a>
-      This place has {{ favs.num_favs }} favorites!
+      This place has {{ favs.num_favs }} favorites! CLEAR FAVS TODO
       <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove this restaurant from your favorites</a>
       {% endfor %}
     </ul>
