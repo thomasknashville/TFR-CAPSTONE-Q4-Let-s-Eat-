@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %} Lets go out to
+eat! Choose a user: <br />
+<div class="letseat-container">
+  {% for person in users %} {% if person != request.user %}
+  <div class="card pro-card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{ person.username}}</h5>
+      <p class="card-text">
+        {% if person.picture %}
+        <img class="img-thumbnail m-auto" width="200px" height="300px" src="{{person.picture.url}}" />
+      </p>
+      {% endif %}
+      <a href="/user/{{person.id}}/" class="card-link">View their Profile</a>
+      <a href="/user/{{person.id}}/match/" class="card-link"> Invite them to dinner!</a><br />
+    </div>
+  </div>
+</div>
+{% endif%} {% endfor %} {% endblock %}

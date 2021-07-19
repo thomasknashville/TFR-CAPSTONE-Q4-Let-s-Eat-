@@ -35,6 +35,7 @@ urlpatterns = [
     path('restaurant/<int:restaurant_id>/unfavorite/', rest_views.RemoveFromFavs.as_view(), name="unfavorite"),
     path('restaurant/<int:restaurant_id>/<int:user_id>/removefav/', user_views.remove_from_favs, name="remove_from_favs"),
     path('user/<int:user_id>/', user_views.profile, name='profile'),
+    path('letseat/', user_views.letseat, name='letseat'),
     path('user/<int:user_id>/edit/', user_views.profile_edit, name='profile_edit'),
     path('user/<int:user_id>/match/', fav_views.get_fav, name='match'),
     path('user/<int:user_id>/viewmatch/', note_views.note, name='view_match'),

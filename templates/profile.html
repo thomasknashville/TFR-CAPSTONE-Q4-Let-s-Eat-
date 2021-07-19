@@ -19,9 +19,6 @@
       {% endfor %}
     </ul>
     <br />
-    Lets go out to eat! Choose a user: <br />{% for person in users %} {% if person != request.user %}
-    <a href="/user/{{person.id}}/match/">{{person.username}}</a><br />
-    {% endif%} {% endfor %}
     <a href="/user/{{user.id}}/edit/">Edit your profile</a>
     <br />
     {{new_notes.count}}

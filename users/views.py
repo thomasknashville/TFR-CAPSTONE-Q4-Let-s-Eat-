@@ -56,6 +56,10 @@ def profile(request, user_id: int):
     new_notes = Notification.objects.filter(read=False, recipient=request.user)
     return render(request, 'profile.html', {'user':user, 'users':users, 'restaurants': restaurants, "new_notes": new_notes })
 
+def letseat(request):
+    users = TFRUser.objects.all()
+    return render(request, 'letseat.html', {"users":users})
+
 
 def profile_edit(request, user_id: int):
     profile = TFRUser.objects.get(id=user_id)

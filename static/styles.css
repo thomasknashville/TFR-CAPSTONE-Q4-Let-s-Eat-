@@ -14,13 +14,14 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  //   align-items: center;
 }
 .svg-wrapper {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
-  width: 320px;
+  width: 315px;
 }
 .shape {
   stroke-dasharray: 140 540;
@@ -144,10 +145,7 @@ a {
   ); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ff90', endColorstr='#30ff90',GradientType=1 ); /* IE6-9 */
 }
-// INDEX HOMPAGE STYLES
-.index-styles {
-  background-color: black;
-}
+
 /* PROFILE STYLES */
 .rest_detail_styles {
   background-color: black;
@@ -161,9 +159,9 @@ a {
 }
 /* INDEX STYLES */
 
-.index-styles {
-  background-color: black;
-}
+// .index-styles {
+//   background-color: black;
+// }
 
 // .rest-cards {
 //   display: flex;
@@ -328,4 +326,14 @@ $color2: blue;
 
   // Color dodge gives the lights that shimmer effect
   mix-blend-mode: color-dodge;
+}
+
+// LETSEAT STYLES
+
+.letseat-container {
+  display: flex;
+}
+.pro-card {
+  flex-direction: row;
+  justify-content: center;
 }
