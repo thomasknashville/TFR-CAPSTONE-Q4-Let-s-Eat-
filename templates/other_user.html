@@ -1,8 +1,8 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+{% extends 'base.html' %}{% block other_user %}
 
 <div id="content" , name="content" , class="main">
  {% for note in unread%} <ul> {{note.sender}} is inviting you
-to dine with them at <a href="restaurant/{{rest.id}}/'{{note.rest_match}}! Invitation sent at: {{note.created_at}}  {% endfor %}
+to dine with them at <a href="restaurant/{{rest.id}}/">{{note.rest_match}}</a>! Invitation sent at: {{note.created_at}}  {% endfor %}
 </br></ul>
 </div>  
 {% endblock %}

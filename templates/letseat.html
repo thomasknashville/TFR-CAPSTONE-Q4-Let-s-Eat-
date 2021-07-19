@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %} Lets go out to
-eat! Choose a user: <br />
+{% extends 'base.html' %}{% block letseat %} Lets go out to eat! Choose a user: <br />
 <div class="letseat-container">
   {% for person in users %} {% if person != request.user %}
   <div class="card pro-card" style="width: 18rem">

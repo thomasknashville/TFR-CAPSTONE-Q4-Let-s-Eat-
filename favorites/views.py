@@ -13,7 +13,7 @@ def get_fav(request, user_id: int):
             if i == j:
                 match_list.insert(0, i)
     if match_list == []:
-        app_choice = "You have no restaurants in common!"
+        app_choice = "You have no restaurants in common! Pick another favorite and try again!"
     else:
         app_choice = random.choice(match_list)
         Notification.objects.create(

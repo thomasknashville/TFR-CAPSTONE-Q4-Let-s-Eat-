@@ -1,19 +1,19 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
-<body>
-  <div class="mycontainer">
-    <div id="app_choice" , name="main" , class="form-box">
-      <form method="POST" action="">
-        {% csrf_token %} {{ form.as_p }}
+{% extends 'base.html' %} {% block signup_login_form %}
 
-        <input type="submit" value="Submit" class="buttons" />
-      </form>
-      {% for message in messages %}
-      <div class="alert alert-success">
-        <a class="close" href="#" data-dismiss="alert">X</a>
-        {{message}}
-      </div>
-      {% endfor %}
+<div class="mycontainer pro-container mt-2">
+  <div id="app_choice" , name="main" , class="">
+    <form method="POST" action="">
+      {% csrf_token %} {{ form.as_p }}
+
+      <input type="submit" value="Submit" class="buttons" />
+    </form>
+    {% for message in messages %}
+    <div class="alert alert-success">
+      <a class="close" href="#" data-dismiss="alert">X</a>
+      {{message}}
     </div>
+    {% endfor %}
   </div>
-</body>
+</div>
+
 {% endblock %}

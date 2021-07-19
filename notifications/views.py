@@ -9,8 +9,8 @@ from restaurants.models import Restaurant
 
 
 
-def note(request, user_id, restaurant_id):
-    rest = Restaurant.objects.filter(id=restaurant_id)
+def note(request, user_id, rest_id):
+    rest = Restaurant.objects.filter(id=rest_id)
     notes = Notification.objects.all()
     unread = Notification.objects.filter(read=False, recipient=request.user)
     for note in unread:

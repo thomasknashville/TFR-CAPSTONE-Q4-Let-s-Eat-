@@ -6,6 +6,9 @@
     {% comment %} {% block header %} {% endblock %} {% endcomment %}
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
 
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;700;800&display=swap");
+    </style>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
@@ -25,8 +28,15 @@
     />
   </head>
   <body>
-    <div class="sticky-top">{% block navbar %} {% endblock %}</div>
+    <div class="sticky-top">{% include 'nav.html' %}</div>
     <div class="container-fluid">{% block content %} {% endblock %}</div>
+    <div class="container-fluid">{% block form %} {% endblock %}</div>
+    <div class="container-fluid">{% block letseat %} {% endblock %}</div>
+    <div class="container-fluid">{% block match %} {% endblock %}</div>
+    <div class="container-fluid">{% block other_user %} {% endblock %}</div>
+    <div class="container-fluid">{% block profile %} {% endblock %}</div>
+    <div class="container-fluid">{% block rest_detail %} {% endblock %}</div>
+    <div class="container-fluid">{% block signup_login_form %} {% endblock %}</div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

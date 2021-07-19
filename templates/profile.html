@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
-<div class="container">
-  <div class="d-flex justify-content-start flex-wrap white">
+{% extends 'base.html' %} {% block profile %}
+<div class="pro-container">
+  <div class="d-flex justify-content-start flex-wrap">
     Username:{{user.username}}
     <br />
     Bio:{{user.bio}}
@@ -14,10 +14,11 @@
     My Favorite Restaurants:{% for favs in user.favorites.all %}
     <ul>
       <a href="/restaurant/{{favs.id}}/">{{favs.name}}</a>
-      This place has {{ favs.num_favs }} favorites! CLEAR FAVS TODO
-      <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove this restaurant from your favorites</a>
+      This place has been favorited {{ favs.num_favs }} times!
+      <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove from your favorites</a>
       {% endfor %}
     </ul>
+    {% comment %} <a href="/user/{{user.id}}/clearfavs/">Clear all favorited restaurants</a> {% endcomment %}
     <br />
     <a href="/user/{{user.id}}/edit/">Edit your profile</a>
     <br />

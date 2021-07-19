@@ -1,4 +1,9 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block match %}
 
-<div id="app_choice" , name="main" , class="main"><h1>EAT HERE: {{ app_choice }}</h1></div>
+<div id="app_choice" name="main" class="match">
+  <h1>
+    You guys are gonna eat at: {{ app_choice }}. Your guest will have a notification waiting for them when they log in!
+    ENJOY your dinner!
+  </h1>
+</div>
 {% endblock %}

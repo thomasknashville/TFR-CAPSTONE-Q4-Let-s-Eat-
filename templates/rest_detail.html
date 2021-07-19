@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block navbar %} {% include 'nav.html' %}{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block rest_detail %}
 <div class="rest_detail_styles">
   <div class="text-effect">
     <!-- Select the text in the preview and type in your own -->
@@ -8,18 +8,18 @@
     </div>
   </div>
 
-  <div id="content" , name="content" , class="main">
+  <div id="content" name="content" class="rest_detail_styles">
     <br />
-    Location:{{restaurant.location}}
+    <p>Location:{{restaurant.location}}</p>
     <br />
     <img height="200" src="{{restaurant.pic_icon.url}}" alt="{{ restaurant.name }}" />
     <br />
-    This place is known for its {{restaurant.sig_dish}}
+    <p>This place is known for its {{restaurant.sig_dish}}</p>
     <br />
-    View their menu Here -->
-    <img height="200" src="{{restaurant.menu.url}}" alt="Restaurant Menu Not Available" />
+    <p>View their menu Here -->
+    <img height="200" src="{{restaurant.menu.url}}" alt="Restaurant Menu Not Available" /></p>
     <br />
-    {{restaurant.num_favs}} people have added this restaurant to their favorites list!
+    <p>{{restaurant.num_favs}} people have added this restaurant to their favorites list!</p>
     <br />
 
     <br />

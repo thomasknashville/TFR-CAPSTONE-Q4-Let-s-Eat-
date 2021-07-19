@@ -3,8 +3,9 @@
   text-align: center;
   height: 100px;
 }
-html {
-  background: rgb(255, 255, 255);
+html body {
+  font-family: "Manrope", sans-serif;
+  background-color: black;
 }
 a {
   text-decoration: none !important;
@@ -33,7 +34,7 @@ a {
   transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 .text {
-  font-family: "Roboto Condensed";
+  font-family: "Manrope", sans-serif;
   font-size: 22px;
   line-height: 32px;
   letter-spacing: 8px;
@@ -147,15 +148,30 @@ a {
 }
 
 /* PROFILE STYLES */
-.rest_detail_styles {
+.pro-container {
   background-color: black;
+  font-family: "Manrope", sans-serif;
+  color: aqua;
+  height: 100%;
 }
 .profile-styles {
   background-color: coral;
 }
 // LOGIN SIGNUP STYLES
-.login_styles .form-box {
+.my-container {
   background-color: black;
+  font-family: "Manrope", sans-serif;
+  color: aqua;
+}
+
+// REST_DETAIL_STYLES
+
+.rest-detail-styles {
+  font-family: "Manrope", sans-serif;
+  color: aqua;
+}
+p {
+  color: aqua;
 }
 /* INDEX STYLES */
 
@@ -172,7 +188,14 @@ a {
 //   flex-grow: 4;
 //   justify-content: space-around;
 // }
+.card-body {
+  background-color: aqua;
+  color: black;
+}
 
+.mt-2 {
+  color: coral;
+}
 .image-flip:hover .backside,
 .image-flip.hover .backside {
   -webkit-transform: rotateY(0deg);
@@ -211,6 +234,8 @@ a {
 
 .frontside,
 .backside {
+  background-color: black;
+  color: aqua;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -237,7 +262,8 @@ a {
 }
 
 .backside {
-  background: white;
+  background: black;
+  color: aqua;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
@@ -336,4 +362,16 @@ $color2: blue;
 .pro-card {
   flex-direction: row;
   justify-content: center;
+}
+
+.match,
+#app_choice {
+  color: coral;
+}
+
+.stacking-slide {
+  height: 100vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
 }

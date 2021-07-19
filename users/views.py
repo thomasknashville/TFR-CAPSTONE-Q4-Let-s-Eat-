@@ -63,6 +63,7 @@ def letseat(request):
 
 def profile_edit(request, user_id: int):
     profile = TFRUser.objects.get(id=user_id)
+    clear_my_favs = TFRUser.objects.get(id=request.user.id).favorites.clear()
 
     if request.method == 'POST':
         print("print this mofo")
@@ -81,7 +82,7 @@ def profile_edit(request, user_id: int):
         'email': profile.email,
         'picture': profile.picture,
     })
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form.html', {'form': form, 'clear_my_favs':clear_my_favs})
 
 
 def demo_error(request):
