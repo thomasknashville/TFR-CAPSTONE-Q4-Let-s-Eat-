@@ -6,6 +6,7 @@
 html body {
   font-family: "Manrope", sans-serif;
   background-color: black;
+  text-align: center;
 }
 a {
   text-decoration: none !important;
@@ -176,12 +177,19 @@ p {
 /* INDEX STYLES */
 
 // .index-styles {
-//   background-color: black;
+//   height:
 // }
 
-// .rest-cards {
-//   display: flex;
-// }
+.rest-cards {
+  display: flex !important;
+  //   align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.carousel {
+  padding: 600px;
+}
 
 // .cards {
 //   flex-flow: row-wrap;
@@ -369,9 +377,20 @@ $color2: blue;
   color: coral;
 }
 
-.stacking-slide {
-  height: 100vh;
-  width: 100%;
-  position: sticky;
-  top: 0;
-}
+// .stacking-slide {
+//   height: 100vh;
+//   width: 100%;
+//   position: sticky;
+//   top: 0;
+//   scroll-snap-align: start;
+// }
+// .vertical-scroll-snap {
+//   overflow-y: scroll;
+//   scroll-snap-type: y mandatory;
+//   max-height: 100vh;
+// }
+
+// .stacking-slide {
+//     scroll-snap-align: start;
+//     // ...
+// }

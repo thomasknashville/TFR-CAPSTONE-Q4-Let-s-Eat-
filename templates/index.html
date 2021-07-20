@@ -1,41 +1,102 @@
 {% extends 'base.html' %}{% block content %}
 <div id="content" , name="content" , class="index-styles">
   <h1 class="mt-2">What restaurants are open near me?</h1>
-{% for restaurant in restaurants %}
-    <section class="stacking-slide">
-          <div class="rest-cards"> 
-            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-              <div class="mainflip">
-                <div class="frontside">
-                  <div class="card" style="width: 20rem">
-                    <img
-                      class="card-img-top img- fluid"
-                      src="{{restaurant.pic_icon.url}}"
-                      alt="{{ restaurant.name }}"
-                    />
-                    <div class="card-body">
-                      <h4 class="card-title">{{restaurant.name}}</h4>
-                      <p class="card-text">Flip this card to view details and select some options!</p>
-                    </div>
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for restaurant in restaurants %}
+      <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" id="slide{{ forloop.counter }}">
+        <div class="rest-cards">
+          <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+            <div class="mainflip">
+              <div class="frontside">
+                <div class="card" style="width: 20rem">
+                  <img
+                    class="card-img-top img- fluid d-block w-100"
+                    src="{{restaurant.pic_icon.url}}"
+                    alt="{{ restaurant.name }}"
+                    height="650px !important"
+                    width="100%"
+                  />
+                  <div class="card-body">
+                    <h4 class="card-title">{{restaurant.name}}</h4>
+                    <p class="card-text">Flip this card to view details and select some options!</p>
                   </div>
                 </div>
-                <div class="backside">
-                  <div class="card" style="width: 20rem">
-                    <div class="card-header">{{restaurant.name}}</div>
-                    <div class="card-body">
-                      <a href="/restaurant/{{restaurant.id}}/" class="btn btn-info btn-md">View restaurant Info</a>
-                      <a href="/restaurant/{{ restaurant.id }}/favorite/" class="btn btn-info btn-md"
-                        >I could eat here tonight!</a
-                      >
-                    </div>
+              </div>
+              <div class="backside">
+                <div class="card" style="width: 20rem">
+                  <div class="card-header">{{restaurant.name}}</div>
+                  <div class="card-body">
+                    <a href="/restaurant/{{restaurant.id}}/" class="btn btn-info btn-md">View restaurant Info</a>
+                    <a href="/restaurant/{{ restaurant.id }}/favorite/" class="btn btn-info btn-md"
+                      >I could eat here tonight!</a
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </section>
-          {% endfor %}
         </div>
+        </div>
+        {% endfor %}
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
     {% endblock %}
+     {% comment %}
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for restaurant in restaurants %}
+        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" id="slide{{ forloop.counter }}">
+          <img
+            class="d-block w-100"
+            src="{{restaurant.pic_icon.url}}"
+            alt="{{ restaurant.name }}"
+            height="650px !important"
+            width="100%"
+          />
+        </div>
+        {% endfor %}
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      {% endcomment %} {% comment %} {% endblock %} {% endcomment %} {% comment %}
+    </div>
+    {% endcomment %}
   </div>
 </div>
