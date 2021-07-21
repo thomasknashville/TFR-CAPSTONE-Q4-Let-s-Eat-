@@ -16,16 +16,3 @@ class Notification(models.Model):
 
 Notification.objects.order_by('created_at')
 
-    # def __str__(self):
-    #     return self.match
-
-
-# class Note(models.Model):
-#     user = models.ForeignKey(
-#         TwitterUser, on_delete=models.CASCADE
-#     )
-#     tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return self.tweet.content

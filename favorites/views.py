@@ -2,7 +2,7 @@ from notifications.models import Notification
 from django.shortcuts import render
 from users.models import TFRUser
 import random
-# Create your views here.
+
 def get_fav(request, user_id: int):
     other_user = TFRUser.objects.get(id=user_id)
     my_favs = TFRUser.objects.get(id=request.user.id).favorites.all()
@@ -24,5 +24,4 @@ def get_fav(request, user_id: int):
     return render(request, 'match.html', {'app_choice': app_choice})
 
 
-    
 

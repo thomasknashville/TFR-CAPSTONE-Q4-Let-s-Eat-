@@ -9,8 +9,6 @@ from restaurants.models import Restaurant
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 
-'''home page is restaurant'''
-
 
 def SignupView(request):
     if request.method == "POST":
@@ -44,7 +42,6 @@ def login_view(request):
             else:
                 messages.error(request, "Username or Password not correct. Try agin or Sign Up!")
                 return HttpResponseRedirect(reverse('login'))
-           
     form = LoginForm()
     return render(request, "signup_login_form.html", {'form': form})
 
@@ -84,9 +81,6 @@ def profile_edit(request, user_id: int):
     })
     return render(request, 'form.html', {'form': form, 'clear_my_favs':clear_my_favs})
 
-
-def demo_error(request):
-    ...
     
 @login_required
 def logout_view(request):

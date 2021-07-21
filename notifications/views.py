@@ -1,12 +1,5 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
-from users.models import TFRUser
+from django.shortcuts import render
 from notifications.models import Notification
-from restaurants.models import Restaurant
-
-
-# Create your views here.
-
 
 
 def note(request, user_id):

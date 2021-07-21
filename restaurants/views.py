@@ -5,15 +5,6 @@ from notifications.models import Notification
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-# Create your views here.
-
-
-def test(request):
-    return render(request, 'border_test.html')
-
-
-
 class IndexView(LoginRequiredMixin, View):
     def get(self, request):
         restaurants = Restaurant.objects.all()
