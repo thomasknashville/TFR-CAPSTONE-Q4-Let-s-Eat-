@@ -176,29 +176,37 @@ p {
 }
 /* INDEX STYLES */
 
-// .index-styles {
-//   height:
-// }
-
+.carousel.slide {
+  max-height: 700px !important;
+}
 .rest-cards {
   display: flex !important;
   //   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end !important;
   width: 50%;
 }
 
 .carousel {
-  padding: 600px;
+  height: 350px;
 }
 
-// .cards {
-//   flex-flow: row-wrap;
-//   flex-grow: 4;
-//   justify-content: space-around;
-// }
+.active {
+  display: flex !important;
+  margin: 100px !important;
+  //   justify-content: flex-end;
+  align-items: center !important;
+}
+
+.rest-image {
+  //   display: flex;
+  align-items: center;
+  height: 350px !important;
+  width: 450px !important;
+}
+
 .card-body {
-  background-color: aqua;
-  color: black;
+  background-color: black;
+  color: aqua;
 }
 
 .mt-2 {
@@ -282,7 +290,9 @@ p {
 .card,
 .card-img-top {
   border-radius: 0;
+  width: 450px !important;
 }
+// <img class="card-img-top img- fluid d-block w-100" src="/media/rest_images/freddys_thumbnail.png" alt="Freddy's BBQ" height="650px !important" width="100%"> WE HAVE A PROBLEM HERE
 /* REST_DETAIL STYLES */
 
 /* // Change the colors */
@@ -327,6 +337,27 @@ $color2: blue;
   &::after {
     mix-blend-mode: difference;
   }
+}
+.menu-styles {
+  border: 4p double aqua;
+}
+
+.fav-button {
+  display: inline-block;
+  border-radius: 10px;
+  border: 4px double coral;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  background-color: black;
+  color: coral;
 }
 
 // Position our two effect layers
@@ -394,3 +425,9 @@ $color2: blue;
 //     scroll-snap-align: start;
 //     // ...
 // }
+
+// OTHER USER STYLES
+
+.other_user_message {
+  color: coral !important;
+}

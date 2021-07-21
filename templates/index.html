@@ -6,13 +6,13 @@
     <div class="carousel-inner">
       {% for restaurant in restaurants %}
       <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" id="slide{{ forloop.counter }}">
-        <div class="rest-cards">
+        <div class="d-flex rest-cards">
           <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
             <div class="mainflip">
               <div class="frontside">
                 <div class="card" style="width: 20rem">
                   <img
-                    class="card-img-top img- fluid d-block w-100"
+                    class="card-img-top img- fluid d-block w-100 rest-image"
                     src="{{restaurant.pic_icon.url}}"
                     alt="{{ restaurant.name }}"
                     height="650px !important"

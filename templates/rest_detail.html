@@ -16,15 +16,23 @@
     <br />
     <p>This place is known for its {{restaurant.sig_dish}}</p>
     <br />
-    <p>View their menu Here -->
-    <img height="200" src="{{restaurant.menu.url}}" alt="Restaurant Menu Not Available" /></p>
+    <p>
+        <figure>
+            <figcaption><strong>Menu</strong></figcaption>
+            <img class="menu-styles" height="200" src="{{restaurant.menu.url}}" alt="Restaurant Menu Not Available" />
+          </figure>
     <br />
     <p>{{restaurant.num_favs}} people have added this restaurant to their favorites list!</p>
     <br />
 
     <br />
-    <h2><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></h2>
-    <h2><a href="/restaurant/{{ restaurant.id }}/unfavorite/">Remove this restaurant from your favorites</a></h2>
-  </div>
+    <p>
+    {% if restaurant in user.favorites.all %}
+    <button class="fav-button"><a href="/restaurant/{{ restaurant.id }}/unfavorite/">Remove this restaurant from your favorites</a></button>
+    {% else %}
+    <button class="fav-button"><a href="/restaurant/{{ restaurant.id }}/favorite/">Add this restaurant to your favorites</a></button>
+    {% endif %}
+</p>  
+</div>
 </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block profile %}
+{% extends 'base.html' %} {% comment %}{% block profile %}
 <div class="pro-container">
   <div class="d-flex justify-content-start flex-wrap">
     Username:{{user.username}}
@@ -18,12 +18,79 @@
       <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove from your favorites</a>
       {% endfor %}
     </ul>
-    {% comment %} <a href="/user/{{user.id}}/clearfavs/">Clear all favorited restaurants</a> {% endcomment %}
+    {% comment %} <a href="/user/{{user.id}}/clearfavs/">Clear all favorited restaurants</a>
     <br />
     <a href="/user/{{user.id}}/edit/">Edit your profile</a>
     <br />
     {{new_notes.count}}
     <a href="/user/{{user.id}}/viewmatch/"> View matches</a>
+  </div>
+</div>
+{% endblock %} {% endcomment %} {% block profile %}
+<div class="pro-container">
+  <div class="profile" ; style="float: left">
+    <div class="name" ; style="float: right; padding: 20px">
+      <a class="btn btn-primary" href="/user/{{user.id}}/viewmatch/"> You have {{ new_notes.count }} matches</a>
+      <br />
+      <br />
+      <br />
+      Hi there<br />
+      <h2>{{user.username}}</h2>
+      ARE YOU HUNGRY?
+      <br />
+      <br />
+      <br />
+      What makes you awesome:
+      <br />
+      <h2>{{user.bio|wordwrap:30|linebreaks}}</h2>
+      <br />
+      <br />
+      Email:
+      <br />
+      <h2>{{user.email}}</h2>
+      <br />
+
+      {% if user.picture %}
+      <br />
+    </div>
+    <div class="picture" ; style="float: left; padding: 10px">
+      <img class="img-thumbnail m-auto" width="300px" height="000px" src="{{user.picture.url}}" /><br />
+
+      <a href="/user/{{user.id}}/edit/">Edit your profile</a>
+    </div>
+  </div>
+  {% endif %}
+  <br />
+  <h2><p>My Favorite Restaurants:</p></h2>
+  <div class="favorite" style="float: center; padding: 10px">
+    <ul
+      style="list-style-type: none; height: 950px; display: flex; flex-flow: column wrap; justify-content: space-evenly"
+    >
+      {% for favs in user.favorites.all %}
+      <div class="restaurants">
+        <li>
+          <h3><a href="/restaurant/{{favs.id}}/">{{favs.name}}</a></h3>
+          <br />
+          This place has been favorited {{ favs.num_favs }} times!<br />
+          <a href="/restaurant/{{ favs.id }}"
+            ><img
+              src="{{favs.pic_icon.url}}"
+              style="border-style: solid; border-color: aqua"
+              height="250"
+              width="350"
+              alt="{{image.name}}"
+          /></a>
+
+          <br />
+
+          <a href="/restaurant/{{ favs.id }}/{{user.id}}/removefav/">Remove from your favorites</a>
+        </li>
+      </div>
+      {% endfor %}
+    </ul>
+    {% comment %}
+    <a href="/user/{{user.id}}/clearfavs/">Clear all favorited restaurants</a>
+    {% endcomment %}
   </div>
 </div>
 {% endblock %}
