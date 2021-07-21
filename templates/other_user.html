@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block other_user %}
 
-<div id="content"  name="content"  class="other_user_styles">
+<div id="content"  name="content"  class="mt-2 ">
  {% for note in unread%} <ul> <h1 class="other_user_message">{{note.sender}} is inviting you
 to dine with them at <a href="/restaurant/{{note.rest_match.id}}/">{{note.rest_match}}</a>! <br />Invitation sent at: {{note.created_at}}</h1>  {% endfor %}
 </br></ul>

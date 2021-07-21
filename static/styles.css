@@ -203,10 +203,18 @@ p {
   height: 350px !important;
   width: 450px !important;
 }
-
 .card-body {
-  background-color: black;
-  color: aqua;
+  background-color: black !important;
+  color: aqua !important;
+}
+.backside {
+  background-color: black !important;
+  color: coral !important;
+}
+
+.card-header {
+  background-color: black !important;
+  color: coral !important;
 }
 
 .mt-2 {
