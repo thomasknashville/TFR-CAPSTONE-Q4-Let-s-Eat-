@@ -10,7 +10,7 @@ class SignupForm(forms.ModelForm):
             'email',
             'password'
         )
-        
+        help_texts={"username": ("")}
     def __str__(self) -> str:
         return self.name
 class LoginForm(forms.Form):
