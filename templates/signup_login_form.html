@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block signup_login_form %}
 
 <div class="mycontainer pro-container mt-2">
-  <div id="app_choice" , name="main" , class="">
-    <form method="POST" action="">
+  <div id="app_choice" name="main">
+    <form
+      method="POST"
+      action=""
+      style="background-color: coral; color: black; margin-top: 50px; padding: 20px; border: solid 2px darkblue"
+    >
       {% csrf_token %} {{ form.as_p }}
 
       <input type="submit" value="Submit" class="buttons" />
